@@ -1,18 +1,11 @@
-
-def my_select(collection)
- if collection.empty?
-   return nil
- end
-
- i = 0
- array = []
-
- while i < collection.length
-   test = yield collection[i]
-   if (test)
-    array << collection[i]
-   end
-    i += 1
- end
- array
+def my_select(array)
+  i = 0
+  select = []
+  while i < array.length
+    if yield(array[i])
+      select << array[i]
+    end
+    i+=1
+  end
+  select
 end
